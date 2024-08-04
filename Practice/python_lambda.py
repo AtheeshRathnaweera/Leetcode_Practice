@@ -262,3 +262,72 @@ def generate_fibonacci(n):
 
 generate_fibonacci_lambda = lambda n: reduce(lambda x, _: x + [x[-1] + x[-2]], range(n - 2), [0, 1])
 print(generate_fibonacci_lambda(9))
+
+
+############################################################################################
+# 10. Write a Python program to find the intersection of two given arrays using Lambda.
+# Original arrays:
+# [1, 2, 3, 5, 7, 8, 9, 10]
+# [1, 2, 4, 8, 9]
+# Intersection of the said arrays: [1, 2, 8, 9]
+print("\nexercise 10")
+
+array_01 = [1, 2, 3, 5, 7, 8, 9, 10]
+array_02 = [1, 2, 4, 8, 9]
+
+def get_intersection_of_two_arrays(arr_01, arr_02):
+    result = []
+    for item in arr_01:
+        if item in arr_02:
+            result.append(item)
+    return result
+
+get_intersection_of_two_arrays_lambda = list(filter(lambda x: x in array_02, array_01))
+
+# print(get_intersection_of_two_arrays(array_01, array_02))
+print(get_intersection_of_two_arrays_lambda)
+
+############################################################################################
+# 11. Write a Python program to rearrange positive and negative numbers in a given array
+# using Lambda.
+# Original arrays:
+# [-1, 2, -3, 5, 7, 8, 9, -10]
+# Rearrange positive and negative numbers of the said array:
+# [2, 5, 7, 8, 9, -10, -3, -1]
+print("\nexercise 11")
+
+input_arr = [-1, 2, -3, 5, 7, 8, 9, -10]
+
+def rearrange_positive_negative_nums(arr):
+    # sort the array by ascending order
+    sorted_arr = sorted(arr)
+    first_positive_index = 0
+
+    # find the first positive num
+    for index, item in enumerate(sorted_arr):
+        if item >= 0:
+            first_positive_index = index
+            break
+
+    return sorted_arr[first_positive_index:] + sorted_arr[:first_positive_index]
+
+rearrange_positive_negative_nums_lambda = sorted(input_arr, key=lambda x: 0 if x == 0 else -1/x)
+
+# print(rearrange_positive_negative_nums(input_arr))
+print(rearrange_positive_negative_nums_lambda)
+
+############################################################################################
+# 12. Write a Python program to count the even and odd numbers in a given array of
+# integers using Lambda.
+# Original arrays:
+# [1, 2, 3, 5, 7, 8, 9, 10]
+# Number of even numbers in the above array: 3
+# Number of odd numbers in the above array: 5
+print("\nexercise 12")
+
+input_arr = [1, 2, 3, 5, 7, 8, 9, 10]
+
+print(f"Number of even numbers in the above array: {len(list(filter(lambda x: x % 2 == 0, input_arr)))}")
+print(
+    f"Number of odd numbers in the above array: {len(list(filter(lambda x: x % 2 != 0, input_arr)))}"
+)
