@@ -108,16 +108,12 @@ def shortest_path_q_01(graph: dict, start: str, end: str):
     visited: set[str] = set()
 
     while queue:
-        # print()
-        # print(f"current queue: {queue}")
-        # print(f"already visited: {visited}")
         # get the left most path from the queue
         left_most_path = queue.popleft()
         last_node = left_most_path[-1]
 
         # if the end node is found, return the path
         if last_node == end:
-            # print(f"last node and end is equal: {last_node} {end}")
             return left_most_path
 
         if last_node in visited:
