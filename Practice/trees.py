@@ -37,6 +37,7 @@ binary_tree = BTreeNode(
 )
 
 # TRAVERSAL
+# Depth First Traversal
 # In-order Traversal
 # left, root, right
 def in_order_traversal(node:BTreeNode):
@@ -73,6 +74,9 @@ def post_order_traversal(node:BTreeNode):
 
 post_order_traversal(binary_tree)
 # Expected: [2, 5, 11, 6, 7, 5, 9, 9, 1]
+
+# Breadth First Traversal (Or Level Order Traversal)
+# https://www.geeksforgeeks.org/bfs-vs-dfs-binary-tree/
 
 ###################################################################################
 # Full Binary Tree
